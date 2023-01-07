@@ -37,4 +37,4 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: awei0905/TestForMultiStaging:latest
+          tags: awei0905/test:latest
