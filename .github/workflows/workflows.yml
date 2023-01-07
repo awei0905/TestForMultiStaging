@@ -17,4 +17,4 @@ jobs:
           dotnet-version: '7.0.101'
       
       - name: Build Asp.net core project.
-        run: dotnet build DrMasterEduWebApi --configuration Release
+        run: dotnet build TestForMultiStaging --configuration Release
