@@ -52,5 +52,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             docker stop test
+            docker rm test
             docker pull awei0905/test
             docker run --rm -p 80:5000 --name=test -it -d awei0905/test --restart=always
