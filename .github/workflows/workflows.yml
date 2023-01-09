@@ -6,7 +6,7 @@ on:
       - 'master'
 
 jobs:
-  docker:
+  builddockerimage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout git repository
@@ -38,3 +38,16 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: awei0905/test:latest
+  
+  deploytoserver:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image from dockerhub
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: 
+            docker run -p 80:5000 --name=test -it -d awei0905/test --restart=always --rm
