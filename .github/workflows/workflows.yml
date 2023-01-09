@@ -40,6 +40,7 @@ jobs:
           tags: awei0905/test:latest
   
   deploytoserver:
+    needs: builddockerimage
     runs-on: ubuntu-latest
     steps:
       - name: Pull image from dockerhub
