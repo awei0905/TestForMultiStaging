@@ -37,6 +37,7 @@ jobs:
           tags: awei0905/test:latest
   
   deploytoserver:
+    environment: ProductionEnv
     needs: builddockerimage
     runs-on: ubuntu-latest
     steps:
