@@ -1,9 +1,6 @@
 name: ProductionBuildAndDeploy
 
-on:
-  push:
-    branches:
-      - 'master'
+on: workflow_dispatch
 
 jobs:
   builddockerimage:
